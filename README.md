@@ -1,167 +1,168 @@
-# 🍽️ Sistema Web para Restaurante
+🍽️ Sistema Web para Gestión Gastronómica
+📌 Descripción
 
-## 📌 Descripción
+Este proyecto consiste en el desarrollo de una aplicación web para la gestión de pedidos en un restaurante, permitiendo la visualización de productos, su selección mediante un carrito de compras y el manejo de información a través de una base de datos relacional.
 
-Este proyecto es una aplicación web básica para gestionar pedidos en un restaurante.
+El sistema integra diseño visual, lógica de programación y almacenamiento de datos, convirtiéndose en una solución funcional para mejorar la atención al cliente y la gestión interna.
 
-Permite visualizar productos desde una base de datos y agregarlos a un carrito de compras de forma dinámica.
+🎯 Objetivo General
 
----
+Desarrollar una aplicación web funcional que permita gestionar productos y pedidos de un restaurante mediante tecnologías web como PHP y MySQL.
 
-## 🎯 Objetivo General
+🎯 Objetivos Específicos
+Conectar una aplicación web con una base de datos
+Mostrar productos de forma dinámica desde MySQL
+Implementar un carrito de compras funcional
+Gestionar pedidos mediante estructura relacional
+Aplicar lógica de programación en PHP
+Diseñar una interfaz amigable para el usuario
+❗ Problema
 
-Desarrollar una aplicación web funcional que permita gestionar productos y pedidos de un restaurante mediante el uso de PHP y MySQL.
+Inicialmente, el sistema presentaba las siguientes limitaciones:
 
----
+Productos estáticos (sin conexión a base de datos)
+Botones sin funcionalidad
+Ausencia de almacenamiento de datos
+No existía gestión de pedidos
+No había interacción real con el usuario
+✅ Solución
 
-## 🎯 Objetivos Específicos
+Se desarrolló una solución completa basada en:
 
-* Conectar una página web con una base de datos
-* Mostrar productos de forma dinámica
-* Implementar un carrito de compras
-* Permitir la interacción del usuario con el sistema
-* Aplicar lógica de programación en PHP
+Conexión a base de datos MySQL
+Implementación de lógica en PHP
+Uso de sesiones para el carrito
+Creación de un sistema dinámico de productos
+Diseño de una base de datos relacional
 
----
+Esto permitió transformar una interfaz estática en un sistema funcional.
 
-## ❗ Problema
+📚 Marco Teórico
+🔹 PHP
 
-Al inicio, el sistema solo tenía diseño visual:
+Lenguaje de programación del lado del servidor que permite procesar datos, manejar formularios y generar contenido dinámico.
 
-* Los productos eran estáticos
-* Los botones no funcionaban
-* No existía base de datos
-* No se podían guardar pedidos
+🔹 MySQL
 
----
+Sistema de gestión de bases de datos relacional utilizado para almacenar productos, usuarios y pedidos.
 
-## ✅ Solución
+🔹 Modelo Relacional
 
-Se transformó el sistema en una aplicación funcional mediante:
+Estructura que organiza los datos en tablas relacionadas mediante claves primarias y foráneas, garantizando integridad y escalabilidad.
 
-* Conexión a base de datos MySQL
-* Uso de PHP para lógica del sistema
-* Implementación de sesiones
-* Creación de un carrito de compras dinámico
+🔹 Sesiones
 
----
+Permiten mantener información del usuario durante la navegación, como el carrito de compras.
 
-## 📚 Marco Teórico
+🔹 HTML + Tailwind CSS
 
-### 🔹 PHP
+Tecnologías utilizadas para la estructura y el diseño visual de la interfaz.
 
-Lenguaje de programación del lado del servidor que permite procesar datos y generar contenido dinámico en páginas web.
-
-### 🔹 MySQL
-
-Sistema de gestión de bases de datos que permite almacenar información como productos, precios e imágenes.
-
-### 🔹 Sesiones
-
-Mecanismo que permite guardar información del usuario mientras navega en la aplicación (por ejemplo, el carrito).
-
-### 🔹 HTML + Tailwind CSS
-
-Se utilizan para estructurar y diseñar la interfaz visual del sistema.
-
----
-
-## ⚙️ Tecnologías Utilizadas
-
-* PHP
-* MySQL
-* HTML5
-* Tailwind CSS
-* XAMPP
-
----
-
-## 🧩 Funcionalidades
-
-### ✔ Productos dinámicos
+⚙️ Tecnologías Utilizadas
+PHP
+MySQL
+HTML5
+Tailwind CSS
+JavaScript (básico)
+XAMPP
+🧩 Funcionalidades
+✔ Productos dinámicos
 
 Los productos se cargan desde la base de datos.
 
-### ✔ Botón funcional
+✔ Carrito de compras
 
-El botón “Add to Order” ahora envía información al servidor.
+Permite agregar productos y almacenar cantidades mediante sesiones.
 
-### ✔ Carrito de compras
+✔ Botón funcional
 
-Se almacenan los productos seleccionados por el usuario.
+El botón “Add to Order” envía datos al servidor.
 
-### ✔ Cálculo automático
+✔ Cálculo automático
 
-Se calcula el total según los productos agregados.
+Se calcula el total de la compra dinámicamente.
 
----
+✔ Gestión de base de datos
 
-## 🔄 Funcionamiento
+Los datos se almacenan en tablas relacionadas.
 
-1. El usuario ve los productos
-2. Hace clic en “Add to Order”
-3. El sistema guarda el producto en el carrito
-4. Se actualiza la cantidad
-5. Se calcula el total automáticamente
+🗄️ Modelo de Base de Datos
 
----
+El sistema utiliza una base de datos relacional en MySQL compuesta por las siguientes tablas:
 
-## 📂 Estructura
+usuarios
+productos
+pedidos
+detalle_pedido
 
-```
+📸 Modelo entidad–relación:
+(Aquí agregas la captura del diseñador)
+
+📊 Diccionario de Datos
+🧾 Tabla: usuarios
+Campo	Tipo	Descripción
+id	INT	Identificador único
+nombre	VARCHAR	Nombre del usuario
+correo	VARCHAR	Email
+password	VARCHAR	Contraseña
+rol	ENUM	Tipo de usuario
+🍰 Tabla: productos
+Campo	Tipo	Descripción
+id	INT	Identificador
+nombre	VARCHAR	Nombre del producto
+descripcion	TEXT	Descripción
+precio	DECIMAL	Precio
+imagen	VARCHAR	Ruta de imagen
+🧾 Tabla: pedidos
+Campo	Tipo	Descripción
+id	INT	Identificador
+usuario_id	INT	Cliente
+empleado_id	INT	Empleado
+fecha	DATETIME	Fecha
+🛒 Tabla: detalle_pedido
+Campo	Tipo	Descripción
+id	INT	Identificador
+pedido_id	INT	Relación con pedido
+producto_id	INT	Relación con producto
+cantidad	INT	Cantidad
+🔄 Funcionamiento del Sistema
+El usuario visualiza los productos
+Selecciona productos con “Add to Order”
+El sistema guarda los datos en sesión (carrito)
+Se actualiza la cantidad de productos
+Se calcula el total automáticamente
+📂 Estructura del Proyecto
 /restaurante
 │
 ├── cliente.php
 ├── config/
 │   └── db.php
+├── uploads/
 └── assets/
-```
-
----
-
-## ▶️ Cómo Ejecutarlo
-
-1. Instalar XAMPP
-2. Activar Apache y MySQL
-3. Colocar el proyecto en:
-
-```
+▶️ Cómo Ejecutarlo
+Instalar XAMPP
+Activar Apache y MySQL
+Colocar el proyecto en:
 C:\xampp\htdocs\restaurante
-```
-
-4. Crear la base de datos
-5. Abrir en el navegador:
-
-```
+Importar el archivo .sql en phpMyAdmin
+Abrir en el navegador:
 http://localhost/restaurante/cliente.php
-```
+📸 Evidencia
 
----
+(Aquí agregas tus capturas)
 
-## 📸 Evidencia
+Productos dinámicos
+Carrito funcionando
+Base de datos
+Modelo entidad–relación
+🚀 Mejoras Futuras
+Sistema completo de pedidos (guardar en BD)
+Eliminación de productos del carrito
+Inicio de sesión de usuarios
+Gestión de roles (admin, empleado, cliente)
+Panel administrativo
+🧾 Conclusión
 
-*(Aquí agregas tus imágenes)*
+Se logró transformar una página web estática en un sistema dinámico funcional, integrando base de datos, lógica de programación y diseño de interfaz.
 
-* Productos dinámicos
-* Botón funcionando
-* Carrito en uso
-* Base de datos
-
----
-
-## 🚀 Mejoras Futuras
-
-* Eliminar productos del carrito
-* Vaciar carrito
-* Sistema de pedidos completo
-* Inicio de sesión de usuarios
-
----
-
-## 🧾 Conclusión
-
-Se logró convertir una página estática en una aplicación funcional.
-
-El proyecto demuestra cómo integrar diseño, base de datos y lógica de programación para crear un sistema interactivo.
-
----
+El proyecto demuestra la aplicación práctica de tecnologías web y el uso de modelos relacionales para resolver problemas reales en la gestión gastronómica.
